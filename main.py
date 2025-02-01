@@ -36,7 +36,9 @@ class TradingBot:
         # schedule.every(1).hour.do(self.check_balance)
         # schedule.every(5).minutes.do(self.check_positions)
         
+        # schedule.every(1).minute.do(self.trade_cycle)
         while True:
+            self.trade_cycle()
             schedule.run_pending()
             time.sleep(1)
 
