@@ -1,0 +1,622 @@
+
+2025-02-13 04:05:28,264 - INFO - 2025-02-13 04:05:26	 Wallet : 144.3283 USDT
+Action:	 ADAUSDT - ENTER_LONG
+가  격:	 0.78110
+거래량:	 144.5035 USDT 	5.0
+포지션:	 144.5035 USDT
+Reason:	 Price 0.78 < BB Lower 0.78 , RSI 38.2, Order Imbalance 0.20
+
+2025-02-13 06:02:45,312 - INFO - 2025-02-13 06:02:43	 Wallet : 140.8211 USDT
+Action:	 XRPUSDT - EXIT_LONG
+가  격:	 2.44690
+거래량:	 144.3671 USDT 	5.0
+수  익:	 0.4661 USDT, 0.3229 %
+Reason:	 MACD Down/Dead Cross, MPR 0.4434
+
+2025-02-13 07:14:26,391 - INFO - 2025-02-13 07:14:25	 Wallet : 150.0849 USDT
+Action:	 HBARUSDT - ENTER_LONG
+가  격:	 0.22859
+거래량:	 70.6343 USDT 	5.0
+포지션:	 150.1836 USDT
+Reason:	 Price 0.23 < BB Lower 0.23 , RSI 33.9, Order Imbalance 0.51
+
+2025-02-13 12:51:49,901 - INFO - 2025-02-13 12:51:48	 Wallet : 173.1235 USDT
+Action:	 WIFUSDT - EXIT_LONG
+가  격:	 0.62250
+거래량:	 389.8718 USDT 	5.0
+수  익:	 8.7062 USDT, 2.2331 %
+Reason:	 Price 0.62 > BB Upper 0.62 and RSI 68.6
+
+2025-02-14 04:04:28,790 - INFO - 2025-02-14 04:04:27	 Wallet : 153.1618 USDT
+Action:	 HBARUSDT - EXIT_LONG
+가  격:	 0.22264
+거래량:	 135.5878 USDT 	5.0
+수  익:	 -3.1872 USDT, -2.3506 %
+Reason:	 Price 0.22 > BB Upper 0.22 and RSI 82.2
+
+2025-02-14 04:31:48,558 - INFO - 2025-02-14 04:31:48	 Wallet : 153.0853 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.60210
+거래량:	 152.9334 USDT 	5.0
+포지션:	 152.9334 USDT
+Reason:	 Price 0.60 < BB Lower 0.60 , RSI 36.7, Order Imbalance 0.23
+
+2025-02-14 04:34:33,470 - INFO - 2025-02-14 04:34:32	 Wallet : 152.8242 USDT
+Action:	 HBARUSDT - BUY
+가  격:	 0.22045
+거래량:	 434.5070 USDT 	5.0
+포지션:	 522.2460 USDT
+
+2025-02-14 15:10:47,436 - INFO - 2025-02-14 15:10:45	 Wallet : 152.9391 USDT
+Action:	 XRPUSDT - EXIT_SHORT
+가  격:	 2.54840
+거래량:	 305.8080 USDT 	5.0
+수  익:	 3.5760 USDT, 1.1694 %
+Reason:	 Price 2.55 < BB Lower 2.55 and RSI 31.3
+
+2025-02-14 15:20:35,148 - INFO - 2025-02-14 15:20:34	 Wallet : 152.8627 USDT
+Action:	 HBARUSDT - BUY
+가  격:	 0.22501
+거래량:	 382.2920 USDT 	5.0
+포지션:	 382.2920 USDT
+
+2025-02-14 15:58:55,076 - INFO - 2025-02-14 15:58:53	 Wallet : 153.2149 USDT
+Action:	 HBARUSDT - EXIT_LONG
+가  격:	 0.22533
+거래량:	 366.1612 USDT 	5.0
+수  익:	 0.5200 USDT, 0.1420 %
+Reason:	 Price 0.23 > BB Upper 0.23 and RSI 64.4
+
+2025-02-15 00:06:03 [INFO] [TRADE] 2025-02-15 00:06:02	 Wallet : 147.9929 USDT
+Action:	 XRPUSDT - EXIT_SHORT
+가  격:	 2.72340
+거래량:	 589.0714 USDT 	5.0
+수  익:	 0.2752 USDT, 0.0467 %
+Reason:	 MACD Up/Golden Cross, MPR 0.6731
+
+2025-02-15 00:06:16 [INFO] [TRADE] 2025-02-15 00:06:16	 Wallet : 147.9192 USDT
+Action:	 XRPUSDT - ENTER_LONG
+가  격:	 2.72730
+거래량:	 147.2742 USDT 	5.0
+포지션:	 147.2742 USDT
+Reason:	 MACD Up/Golden Cross, RSI 48.7, rsi_min 32.726, MPR 0.6146
+
+2025-02-15 00:15:53 [INFO] [TRADE] 2025-02-15 00:15:52	 Wallet : 147.8453 USDT
+Action:	 ADAUSDT - ENTER_LONG
+가  격:	 0.79940
+거래량:	 147.8890 USDT 	5.0
+포지션:	 147.8890 USDT
+Reason:	 Price 0.80 < BB Lower 0.80 , RSI 23.8, Order Imbalance 0.20
+
+2025-02-15 00:16:12 [INFO] [TRADE] 2025-02-15 00:16:11	 Wallet : 147.6389 USDT
+Action:	 XRPUSDT - BUY
+가  격:	 2.70010
+거래량:	 396.1047 USDT 	5.0
+포지션:	 558.6507 USDT
+
+2025-02-15 00:42:27 [INFO] [TRADE] 2025-02-15 00:42:25	 Wallet : 150.0060 USDT
+Action:	 XRPUSDT - EXIT_LONG
+가  격:	 2.72000
+거래량:	 560.0480 USDT 	5.0
+수  익:	 2.6357 USDT, 0.4706 %
+Reason:	 MACD Down/Dead Cross, MPR 0.4043
+
+2025-02-15 01:36:19 [INFO] [TRADE] 2025-02-15 01:36:16	 Wallet : 149.9547 USDT
+Action:	 HBARUSDT - BUY
+가  격:	 0.22888
+거래량:	 302.5794 USDT 	5.0
+포지션:	 302.5794 USDT
+
+2025-02-15 01:40:56 [INFO] [TRADE] 2025-02-15 01:40:55	 Wallet : 152.1026 USDT
+Action:	 HBARUSDT - EXIT_LONG
+가  격:	 0.23062
+거래량:	 92.7092 USDT 	5.0
+수  익:	 0.6995 USDT, 0.7545 %
+Reason:	 Price 0.23 > BB Upper 0.23 and RSI 61.6
+
+2025-02-15 01:51:59 [INFO] [TRADE] 2025-02-15 01:51:57	 Wallet : 152.0267 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.72990
+거래량:	 151.8192 USDT 	5.0
+포지션:	 151.8192 USDT
+Reason:	 MACD Up/Golden Cross, RSI 48.4, rsi_min 34.472, MPR 0.5727
+
+2025-02-15 01:55:42 [INFO] [TRADE] 2025-02-15 01:55:41	 Wallet : 153.1177 USDT
+Action:	 ADAUSDT - EXIT_LONG
+가  격:	 0.80570
+거래량:	 149.0545 USDT 	5.0
+수  익:	 1.1655 USDT, 0.7819 %
+Reason:	 Price 0.81 > BB Upper 0.81 and RSI 64.1
+
+2025-02-15 01:56:20 [INFO] [TRADE] 2025-02-15 01:56:19	 Wallet : 153.0413 USDT
+Action:	 XRPUSDT - ENTER_SHORT
+가  격:	 2.72720
+거래량:	 152.7232 USDT 	5.0
+포지션:	 -152.7232 USDT
+Reason:	 Price 2.73 > BB Upper 2.73 , RSI 68.9, Order Imbalance -0.25
+
+2025-02-15 02:03:02 [INFO] [TRADE] 2025-02-15 02:03:00	 Wallet : 154.2959 USDT
+Action:	 WIFUSDT - SELL
+가  격:	 0.73630
+거래량:	 153.1504 USDT 	5.0
+수  익:	 1.3312 USDT, 0.8692 %
+
+2025-02-15 03:32:18 [INFO] [TRADE] 2025-02-15 03:32:15	 Wallet : 162.4027 USDT
+Action:	 HBARUSDT - ENTER_LONG
+가  격:	 0.23652
+거래량:	 162.4892 USDT 	5.0
+포지션:	 162.4892 USDT
+Reason:	 MACD Up/Golden Cross, RSI 47.1, rsi_min 32.556, MPR 0.669
+
+2025-02-15 04:05:05 [INFO] [TRADE] 2025-02-15 04:05:04	 Wallet : 162.3216 USDT
+Action:	 XRPUSDT - ENTER_SHORT
+가  격:	 2.79770
+거래량:	 162.2666 USDT 	5.0
+포지션:	 -162.2666 USDT
+Reason:	 Price 2.80 > BB Upper 2.80 , RSI 76.8, Order Imbalance -0.46
+
+2025-02-15 04:05:52 [INFO] [TRADE] 2025-02-15 04:05:50	 Wallet : 164.2248 USDT
+Action:	 HBARUSDT - EXIT_LONG
+가  격:	 0.23941
+거래량:	 89.2999 USDT 	5.0
+수  익:	 1.0780 USDT, 1.2071 %
+Reason:	 Price 0.24 > BB Upper 0.24 and RSI 68.8
+
+2025-02-15 04:19:05 [INFO] [TRADE] 2025-02-15 04:19:04	 Wallet : 164.7589 USDT
+Action:	 XRPUSDT - EXIT_SHORT
+가  격:	 2.78710
+거래량:	 156.6350 USDT 	5.0
+수  익:	 0.5957 USDT, 0.3803 %
+Reason:	 MACD Up/Golden Cross, MPR 0.605
+
+2025-02-15 06:11:43 [INFO] [TRADE] 2025-02-15 06:11:41	 Wallet : 164.6766 USDT
+Action:	 ADAUSDT - ENTER_LONG
+가  격:	 0.79910
+거래량:	 164.6146 USDT 	5.0
+포지션:	 164.6146 USDT
+Reason:	 Price 0.80 < BB Lower 0.80 , RSI 28.7, Order Imbalance 0.23
+
+2025-02-15 06:11:50 [INFO] [TRADE] 2025-02-15 06:11:50	 Wallet : 164.5943 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.74140
+거래량:	 164.5908 USDT 	5.0
+포지션:	 164.5908 USDT
+Reason:	 Price 0.74 < BB Lower 0.74 , RSI 28.6, Order Imbalance 0.24
+
+2025-02-15 06:37:30 [INFO] [TRADE] 2025-02-15 06:37:29	 Wallet : 167.8404 USDT
+Action:	 WIFUSDT - EXIT_LONG
+가  격:	 0.75640
+거래량:	 115.1997 USDT 	5.0
+수  익:	 2.2845 USDT, 1.9831 %
+Reason:	 Price 0.76 > BB Upper 0.76 and RSI 69.0
+
+2025-02-15 06:56:46 [INFO] [TRADE] 2025-02-15 06:56:44	 Wallet : 167.7566 USDT
+Action:	 WIFUSDT - ENTER_SHORT
+가  격:	 0.75800
+거래량:	 167.5180 USDT 	5.0
+포지션:	 -167.5180 USDT
+Reason:	 Price 0.76 > BB Upper 0.76 , RSI 68.4, Order Imbalance -0.29
+
+2025-02-15 07:04:10 [INFO] [TRADE] 2025-02-15 07:04:09	 Wallet : 169.0744 USDT
+Action:	 ADAUSDT - SELL
+가  격:	 0.80590
+거래량:	 151.5092 USDT 	5.0
+수  익:	 1.2784 USDT, 0.8438 %
+
+2025-02-15 07:05:57 [INFO] [TRADE] 2025-02-15 07:05:56	 Wallet : 171.0027 USDT
+Action:	 WIFUSDT - BUY
+가  격:	 0.74890
+거래량:	 122.2954 USDT 	5.0
+수  익:	 1.4860 USDT, 1.2151 %
+
+2025-02-15 14:50:32 [INFO] [TRADE] 2025-02-15 14:50:30	 Wallet : 186.0470 USDT
+Action:	 WIFUSDT - BUY
+가  격:	 0.70090
+거래량:	 242.4413 USDT 	5.0
+수  익:	 2.0062 USDT, 0.8275 %
+
+2025-02-15 15:14:46 [INFO] [TRADE] 2025-02-15 15:14:46	 Wallet : 185.9540 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.70210
+거래량:	 186.0565 USDT 	5.0
+포지션:	 186.0565 USDT
+Reason:	 MACD Up/Golden Cross, RSI 48.8, rsi_min 34.901, MPR 0.6235
+
+2025-02-15 15:22:34 [INFO] [TRADE] 2025-02-15 15:22:33	 Wallet : 187.1058 USDT
+Action:	 WIFUSDT - EXIT_LONG
+가  격:	 0.70680
+거래량:	 187.3020 USDT 	5.0
+수  익:	 1.2455 USDT, 0.6650 %
+Reason:	 Price 0.71 > BB Upper 0.71 and RSI 63.1
+
+2025-02-15 17:06:29 [INFO] [TRADE] 2025-02-15 17:06:27	 Wallet : 188.5962 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.69340
+거래량:	 105.1888 USDT 	5.0
+포지션:	 188.6048 USDT
+Reason:	 Price 0.69 < BB Lower 0.69 , RSI 38.9, Order Imbalance 0.26
+
+2025-02-15 17:09:23 [INFO] [TRADE] 2025-02-15 17:09:22	 Wallet : 188.5019 USDT
+Action:	 XRPUSDT - ENTER_SHORT
+가  격:	 2.77580
+거래량:	 188.7544 USDT 	5.0
+포지션:	 -188.7544 USDT
+Reason:	 MACD Down/Dead Cross, Price 2.78 > Avg 0.00, MPR 0.405
+
+2025-02-15 17:15:24 [INFO] [TRADE] 2025-02-15 17:15:22	 Wallet : 190.4737 USDT
+Action:	 WIFUSDT - EXIT_LONG
+가  격:	 0.70100
+거래량:	 61.5478 USDT 	5.0
+수  익:	 0.6673 USDT, 1.0842 %
+Reason:	 Price 0.70 > BB Upper 0.70 and RSI 67.6
+
+2025-02-15 17:23:57 [INFO] [TRADE] 2025-02-15 17:23:56	 Wallet : 190.1070 USDT
+Action:	 XRPUSDT - SELL
+가  격:	 2.79540
+거래량:	 733.5130 USDT 	5.0
+포지션:	 -923.6002 USDT
+
+2025-02-15 18:31:48 [INFO] [TRADE] 2025-02-15 18:31:46	 Wallet : 190.3288 USDT
+Action:	 XRPUSDT - EXIT_SHORT
+가  격:	 2.78930
+거래량:	 921.5847 USDT 	5.0
+수  익:	 0.6826 USDT, 0.0741 %
+Reason:	 Price 2.79 < BB Lower 2.79 and RSI 31.7
+
+2025-02-15 18:35:25 [INFO] [TRADE] 2025-02-15 18:35:23	 Wallet : 190.2752 USDT
+Action:	 HBARUSDT - BUY
+가  격:	 0.23559
+거래량:	 7.3033 USDT 	5.0
+포지션:	 107.1934 USDT
+
+2025-02-15 19:01:40 [INFO] [TRADE] 2025-02-15 19:01:39	 Wallet : 190.1801 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.70210
+거래량:	 180.2291 USDT 	5.0
+포지션:	 190.2691 USDT
+Reason:	 Price 0.70 < BB Lower 0.70 , RSI 32.7, Order Imbalance 0.24
+
+2025-02-15 19:06:08 [INFO] [TRADE] 2025-02-15 19:06:07	 Wallet : 190.0854 USDT
+Action:	 XRPUSDT - ENTER_LONG
+가  격:	 2.78410
+거래량:	 138.0914 USDT 	5.0
+포지션:	 189.3188 USDT
+Reason:	 MACD Up/Golden Cross, RSI 41.4, rsi_min 30.206, MPR 0.5539
+
+2025-02-15 19:20:39 [INFO] [TRADE] 2025-02-15 19:20:37	 Wallet : 190.9083 USDT
+Action:	 XRPUSDT - EXIT_LONG
+가  격:	 2.79760
+거래량:	 125.6122 USDT 	5.0
+수  익:	 0.6061 USDT, 0.4826 %
+Reason:	 Price 2.80 > BB Upper 2.80 and RSI 63.8
+
+2025-02-15 19:20:57 [INFO] [TRADE] 2025-02-15 19:20:55	 Wallet : 190.8133 USDT
+Action:	 XRPUSDT - ENTER_SHORT
+가  격:	 2.79570
+거래량:	 190.1076 USDT 	5.0
+포지션:	 -190.1076 USDT
+Reason:	 Price 2.80 > BB Upper 2.80 , RSI 63.1, Order Imbalance -0.26
+
+2025-02-15 21:05:58 [INFO] [TRADE] 2025-02-15 21:05:56	 Wallet : 188.0399 USDT
+Action:	 HBARUSDT - EXIT_LONG
+가  격:	 0.23519
+거래량:	 39.2767 USDT 	5.0
+수  익:	 0.1235 USDT, 0.3145 %
+Reason:	 Price 0.24 > BB Upper 0.23 and RSI 66.7
+
+2025-02-20 21:16:07 [INFO] [TRADE] Wallet : 316.5288 USDT
+Action:	 XRPUSDT - EXIT_LONG
+가  격:	 2.68760
+거래량:	 317.1368 USDT 	5.0
+수  익:	 0.3540 USDT, 0.5581 %
+수수료:	 0.1586 USDT
+Reason:	 MACD Down/Dead Cross, MPR 0.3573
+
+2025-02-20 21:46:52 [INFO] [TRADE] Wallet : 316.3706 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.62140
+거래량:	 316.2926 USDT 	5.0
+포지션:	 316.2926 USDT
+수수료:	 0.0786 USDT
+Reason:	 Price 0.62 < BB Lower 0.62 , RSI 31.2, Order Imbalance 0.27
+
+2025-02-20 22:11:35 [INFO] [TRADE] Wallet : 315.9814 USDT
+Action:	 WIFUSDT - BUY
+가  격:	 0.61630
+거래량:	 461.1773 USDT 	5.0
+포지션:	 777.4699 USDT
+수수료:	 0.0451 USDT
+
+2025-02-20 22:35:02 [INFO] [TRADE] Wallet : 316.3770 USDT
+Action:	 XRPUSDT - EXIT_LONG
+가  격:	 2.69410
+거래량:	 317.9038 USDT 	5.0
+수  익:	 0.5466 USDT, 0.8597 %
+수수료:	 0.1567 USDT
+Reason:	 MACD Down/Dead Cross, MPR 0.4214
+
+2025-02-20 23:03:31 [INFO] [TRADE] Wallet : 316.2183 USDT
+Action:	 XRPUSDT - ENTER_SHORT
+가  격:	 2.71350
+거래량:	 317.4795 USDT 	5.0
+포지션:	 -317.4795 USDT
+수수료:	 0.1587 USDT
+Reason:	 Price 2.71 > BB Upper 2.71 , RSI 77.2, Order Imbalance -0.27
+
+2025-02-20 23:04:12 [INFO] [TRADE] Wallet : 320.3980 USDT
+Action:	 WIFUSDT - SELL
+가  격:	 0.62200
+거래량:	 782.0406 USDT 	5.0
+수  익:	 4.5707 USDT, 2.9223 %
+수수료:	 0.3910 USDT
+
+2025-02-21 09:07:57 [INFO] [TRADE] Wallet : 321.0717 USDT
+Action:	 XRPUSDT - ENTER_LONG
+가  격:	 2.68440
+거래량:	 322.1280 USDT 	5.0
+포지션:	 322.1280 USDT
+수수료:	 0.1582 USDT
+Reason:	 MACD Up/Golden Cross, RSI 45.5, rsi_min 26.953, MPR 0.5603
+
+2025-02-21 09:16:52 [INFO] [TRADE] Wallet : 321.5103 USDT
+Action:	 XRPUSDT - SELL
+가  격:	 2.68940
+거래량:	 322.7280 USDT 	5.0
+수  익:	 0.6000 USDT, 0.9296 %
+수수료:	 0.1614 USDT
+
+2025-02-21 09:53:06 [INFO] [TRADE] Wallet : 321.3496 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.64160
+거래량:	 321.4416 USDT 	5.0
+포지션:	 321.4416 USDT
+수수료:	 0.1301 USDT
+Reason:	 MACD Up/Golden Cross, RSI 32.7, rsi_min 23.969, MPR 0.5522
+
+2025-02-21 14:30:33 [INFO] [TRADE] Wallet : 321.0926 USDT
+Action:	 WIFUSDT - EXIT_LONG
+가  격:	 0.65490
+거래량:	 321.5559 USDT 	5.0
+수  익:	 0.5065 USDT, 0.7876 %
+수수료:	 0.0790 USDT
+Reason:	 중심선복귀(RSI:63.3/MPR:0.54)
+
+2025-02-21 14:31:59 [INFO] [TRADE] Wallet : 320.9321 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.65230
+거래량:	 320.9316 USDT 	5.0
+포지션:	 320.9316 USDT
+수수료:	 0.1364 USDT
+Reason:	 상승전환(MACD:0.00/RSI:54.9)
+
+2025-02-21 14:32:06 [INFO] [TRADE] Wallet : 320.0832 USDT
+Action:	 WIFUSDT - EXIT_LONG
+가  격:	 0.65090
+거래량:	 320.2428 USDT 	5.0
+수  익:	 -0.0435 USDT, -0.0680 %
+수수료:	 0.0101 USDT
+Reason:	 중심선복귀(RSI:51.3/MPR:0.63)
+
+2025-02-21 14:32:12 [INFO] [TRADE] Wallet : 319.9232 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.65150
+거래량:	 319.8865 USDT 	5.0
+포지션:	 319.8865 USDT
+수수료:	 0.0736 USDT
+Reason:	 상승전환(MACD:0.00/RSI:52.7)
+
+2025-02-21 14:33:03 [INFO] [TRADE] Wallet : 320.1559 USDT
+Action:	 WIFUSDT - EXIT_LONG
+가  격:	 0.65230
+거래량:	 320.2793 USDT 	5.0
+수  익:	 0.0895 USDT, 0.1398 %
+수수료:	 0.0365 USDT
+Reason:	 중심선복귀(RSI:55.3/MPR:0.60)
+
+2025-02-21 14:36:31 [INFO] [TRADE] Wallet : 319.9959 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.65570
+거래량:	 319.9816 USDT 	5.0
+포지션:	 319.9816 USDT
+수수료:	 0.1600 USDT
+Reason:	 상승전환(MACD:0.00/RSI:59.6)
+
+2025-02-21 14:36:38 [INFO] [TRADE] Wallet : 319.5433 USDT
+Action:	 WIFUSDT - EXIT_LONG
+가  격:	 0.65510
+거래량:	 319.6888 USDT 	5.0
+수  익:	 -0.1927 USDT, -0.3013 %
+수수료:	 0.1052 USDT
+Reason:	 중심선복귀(RSI:58.1/MPR:0.56)
+
+2025-02-21 15:06:53 [INFO] [TRADE] Wallet : 319.3830 USDT
+Action:	 XRPUSDT - ENTER_LONG
+가  격:	 2.64830
+거래량:	 320.4443 USDT 	5.0
+포지션:	 320.4443 USDT
+수수료:	 0.0393 USDT
+Reason:	 MACD Up/Golden Cross, RSI 47.6, rsi_min 30.421, MPR 0.5568
+
+2025-02-21 15:50:08 [INFO] [TRADE] Wallet : 320.4201 USDT
+Action:	 XRPUSDT - SELL
+가  격:	 2.65820
+거래량:	 321.6422 USDT 	5.0
+수  익:	 1.1979 USDT, 1.8622 %
+수수료:	 0.1608 USDT
+
+2025-02-21 15:50:41 [INFO] [TRADE] Wallet : 321.1857 USDT
+Action:	 ADAUSDT - EXIT_SHORT
+가  격:	 0.79620
+거래량:	 954.6438 USDT 	5.0
+수  익:	 1.0377 USDT, 0.5435 %
+수수료:	 0.3985 USDT
+Reason:	 Price 0.80 < BB Lower 0.80 and RSI 29.0
+
+2025-02-21 17:06:22 [INFO] [TRADE] Wallet : 321.0249 USDT
+Action:	 XRPUSDT - ENTER_LONG
+가  격:	 2.65830
+거래량:	 321.6543 USDT 	5.0
+포지션:	 321.6543 USDT
+수수료:	 0.1608 USDT
+Reason:	 MACD Up/Golden Cross, RSI 49.2, rsi_min 34.731, MPR 0.6275
+
+2025-02-21 17:17:47 [INFO] [TRADE] Wallet : 320.8642 USDT
+Action:	 ADAUSDT - ENTER_LONG
+가  격:	 0.79530
+거래량:	 321.3012 USDT 	5.0
+포지션:	 321.3012 USDT
+수수료:	 0.1607 USDT
+Reason:	 Price 0.80 < BB Lower 0.80 , RSI 33.6, Order Imbalance 0.34
+
+2025-02-21 18:11:58 [INFO] [TRADE] Wallet : 322.4969 USDT
+Action:	 HBARUSDT - ENTER_SHORT
+가  격:	 0.22241
+거래량:	 322.7169 USDT 	5.0
+포지션:	 -322.7169 USDT
+수수료:	 0.1614 USDT
+Reason:	 Price 0.22 > BB Upper 0.22 , RSI 66.0, Order Imbalance -0.36
+
+2025-02-21 18:18:31 [INFO] [TRADE] Wallet : 322.3333 USDT
+Action:	 HBARUSDT - ENTER_SHORT
+가  격:	 0.22553
+거래량:	 327.2440 USDT 	5.0
+포지션:	 -649.9575 USDT
+수수료:	 0.0387 USDT
+Reason:	 Price 0.23 > BB Upper 0.22 , RSI 85.2, Order Imbalance -0.29
+
+2025-02-21 18:19:15 [INFO] [TRADE] Wallet : 322.1037 USDT
+Action:	 HBARUSDT - SELL
+가  격:	 0.22594
+거래량:	 459.1101 USDT 	5.0
+포지션:	 -1109.0676 USDT
+수수료:	 0.0372 USDT
+
+2025-02-21 18:24:29 [INFO] [TRADE] Wallet : 321.9428 USDT
+Action:	 XRPUSDT - ENTER_SHORT
+가  격:	 2.68300
+거래량:	 321.9600 USDT 	5.0
+포지션:	 -321.9600 USDT
+수수료:	 0.0596 USDT
+Reason:	 MACD Down/Dead Cross, Price 2.68 > Avg 0.00, MPR 0.4256
+
+2025-02-21 19:58:12 [INFO] [TRADE] Wallet : 325.8480 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.67600
+거래량:	 325.8320 USDT 	5.0
+포지션:	 325.8320 USDT
+수수료:	 0.1629 USDT
+Reason:	 MACD Up/Golden Cross, RSI 37.4, rsi_min 31.114, MPR 0.568
+
+2025-02-21 23:42:45 [INFO] [TRADE] Wallet : 322.5956 USDT
+Action:	 XRPUSDT - ENTER_LONG
+가  격:	 2.66180
+거래량:	 322.0778 USDT 	5.0
+포지션:	 322.0778 USDT
+수수료:	 0.1517 USDT
+Reason:	 MACD Up/Golden Cross, RSI 36.9, rsi_min 20.392, MPR 0.6418
+
+2025-02-21 23:45:36 [INFO] [TRADE] Wallet : 322.4342 USDT
+Action:	 HBARUSDT - ENTER_LONG
+가  격:	 0.22543
+거래량:	 322.8158 USDT 	5.0
+포지션:	 322.8228 USDT
+수수료:	 0.0324 USDT
+Reason:	 MACD Up/Golden Cross, RSI 49.1, rsi_min 18.629, MPR 0.6141
+
+2025-02-22 00:20:11 [INFO] [TRADE] Wallet : 325.9134 USDT
+Action:	 XRPUSDT - SELL
+가  격:	 2.69190
+거래량:	 325.7199 USDT 	5.0
+수  익:	 3.6421 USDT, 5.5908 %
+수수료:	 0.1629 USDT
+
+2025-02-22 00:22:32 [INFO] [TRADE] Wallet : 325.7503 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.70028
+거래량:	 326.3290 USDT 	5.0
+포지션:	 326.3290 USDT
+수수료:	 0.0203 USDT
+Reason:	 Price 0.70 < BB Lower 0.70 , RSI 30.3, Order Imbalance 0.21
+
+2025-02-22 00:31:43 [INFO] [TRADE] Wallet : 325.5615 USDT
+Action:	 HBARUSDT - BUY
+가  격:	 0.22103
+거래량:	 944.0191 USDT 	5.0
+포지션:	 1266.8420 USDT
+수수료:	 0.1888 USDT
+
+2025-02-22 07:17:16 [INFO] [TRADE] Wallet : 260.0211 USDT
+Action:	 HBARUSDT - EXIT_LONG
+가  격:	 0.20998
+거래량:	 1199.6157 USDT 	5.0
+수  익:	 8.9786 USDT, 3.7423 %
+수수료:	 0.2067 USDT
+Reason:	 Price 0.21 > BB Upper 0.21 and RSI 65.8
+
+2025-02-22 07:24:24 [INFO] [TRADE] Wallet : 259.7613 USDT
+Action:	 HBARUSDT - SELL
+가  격:	 0.21044
+거래량:	 1298.8357 USDT 	5.0
+포지션:	 -1298.8357 USDT
+수수료:	 0.0395 USDT
+
+2025-02-22 20:14:14 [INFO] [TRADE] Wallet : 242.1343 USDT
+Action:	 HBARUSDT - BUY
+가  격:	 0.21388
+거래량:	 79.3495 USDT 	5.0
+포지션:	 320.8936 USDT
+수수료:	 0.0022 USDT
+
+2025-02-22 21:16:41 [INFO] [TRADE] Wallet : 243.3434 USDT
+Action:	 HBARUSDT - EXIT_LONG
+가  격:	 0.21509
+거래량:	 321.1294 USDT 	5.0
+수  익:	 0.2236 USDT, 0.3481 %
+수수료:	 0.1523 USDT
+Reason:	 Price 0.22 > BB Upper 0.21 and RSI 72.8
+
+2025-02-27 03:36:57 [TRADE] Wallet : 84.5601 USDT
+Action:	 HBARUSDT - BUY
+가  격:	 0.19040
+거래량:	 84.7280 USDT 	5.0
+포지션:	 84.7280 USDT
+수수료:	 0.0169 USDT
+
+2025-02-27 03:37:25 [TRADE] Wallet : 84.5179 USDT
+Action:	 WIFUSDT - ENTER_LONG
+가  격:	 0.54500
+거래량:	 84.4750 USDT 	5.0
+포지션:	 84.4750 USDT
+수수료:	 0.0422 USDT
+Reason:	 BB하단반전(RSI:31.1/MPR:0.63)
+
+2025-02-27 04:19:09 [TRADE] Wallet : 86.6304 USDT
+Action:	 HBARUSDT - SELL
+가  격:	 0.19146
+거래량:	 85.1997 USDT 	5.0
+수  익:	 0.4155 USDT, 2.4385 %
+수수료:	 0.0375 USDT
+
+2025-02-27 04:19:09 [TRADE] Wallet : 86.8980 USDT
+Action:	 WIFUSDT - SELL
+가  격:	 0.54700
+거래량:	 84.7850 USDT 	5.0
+수  익:	 0.3100 USDT, 1.8282 %
+수수료:	 0.0424 USDT
+
+2025-02-27 04:19:10 [TRADE] Wallet : 86.8545 USDT
+Action:	 HBARUSDT - ENTER_LONG
+가  격:	 0.19191
+거래량:	 86.9352 USDT 	5.0
+포지션:	 86.9352 USDT
+수수료:	 0.0435 USDT
+Reason:	 BB하단반전(RSI:26.3/MPR:0.60)
+
+2025-02-27 04:19:57 [TRADE] Wallet : 86.7679 USDT
+Action:	 XRPUSDT - ENTER_LONG
+가  격:	 2.19410
+거래량:	 173.3339 USDT 	10.0
+포지션:	 173.3339 USDT
+수수료:	 0.0867 USDT
+Reason:	 BB하단반전(RSI:26.7/MPR:0.63)
+

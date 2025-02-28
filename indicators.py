@@ -1,256 +1,187 @@
 import pandas as pd
 import pandas_ta as ta
-import numpy as np
-from config import client, COIN_LIST
-
-# Market Pressure Ratio (MPR) 계산
-def calculate_mpr(order_book, levels=None):
-    """
-    Market Pressure Ratio (MPR)를 계산합니다.
-    :param order_book: DataFrame, 호가창 데이터 (Bid Volume, Ask Volume 포함)
-    :param levels: int, 분석에 사용할 가격 레벨 수 (default: 전체 레벨)
-    :return: float, Market Pressure Ratio 
-    MPR > 0.5: 상승 압력
-    MPR < 0.5: 하락 압력
-    """
-    try:
-        # bids와 asks에서 각 레벨별 거래량만 추출
-        bids = order_book["b"]
-        asks = order_book["a"]
-
-        # 마지막 bid와 ask에서 가격 추출
-        coin_low = float(bids[-1][0])  # bids 리스트의 마지막 가격
-        coin_high = float(asks[-1][0])  # asks 리스트의 마지막 가격
+from typing import Dict, List, Optional
 
 
-        # 상위 levels개 레벨만 사용
-        if levels is not None:
-            bids = bids[:levels]
-            asks = asks[:levels]
+class Indicators:
+    def __init__(self):
+        # 지표 기간 설정 (조정 가능)
+        self.ema_fast_length = 20  # 단기 EMA
+        self.ema_slow_length = 50  # 장기 EMA
+        self.sma_short_length = 7
+        self.sma_mid_length = 15
+        self.sma_long_length = 50
+        self.rsi_length = 10
+        self.stoch_k_length = 5
+        self.stoch_d_length = 3
+        self.stoch_smooth = 3
+        self.momentum_length = 5
+        self.roc_length = 5
+        self.cci_length = 10
+        self.willr_length = 10
+        self.adx_length = 10
+        self.atr_length = 10
+        self.macd_fast = 5
+        self.macd_slow = 10
+        self.macd_signal = 3
+        self.bbands_length = 20
+        self.bbands_std = 2.0
+        self.fib_length = 20
 
-        # 매수 및 매도 총 거래량 계산
-        total_bid_volume = sum(float(bid[1]) for bid in bids)
-        total_ask_volume = sum(float(ask[1]) for ask in asks)
+    def calculate_indicators(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        종합적인 기술적 지표를 계산하는 함수
+        :param df: OHLCV (Open, High, Low, Close, Volume) 데이터프레임
+        :return: 계산된 지표가 추가된 데이터프레임
+        """
+        try:
+            # 이동평균선 (EMA) - 가격의 단기 및 중기 추세를 부드럽게 나타냄
+            df['EMA_fast'] = round(ta.ema(df['Close'], length=self.ema_fast_length), 4)  # 단기 EMA (20): 빠른 가격 변동 추적
+            df['EMA_slow'] = round(ta.ema(df['Close'], length=self.ema_slow_length), 4)  # 장기 EMA (50): 중기 추세 확인
 
-        # 매수, 매도 거래량 합이 0인 경우
-        if total_bid_volume + total_ask_volume == 0:
-            return 0.5
+            # 이동평균선 (SMA) - 단순 평균으로 가격 추세를 안정적으로 보여줌
+            df['SMA_short'] = round(df['Close'].rolling(window=self.sma_short_length).mean(), 4)  # 단기 SMA (7): 초단기 추세 파악
+            df['SMA_mid'] = round(df['Close'].rolling(window=self.sma_mid_length).mean(), 4)  # 중기 SMA (15): 단기 추세 확인
+            df['SMA_long'] = round(df['Close'].rolling(window=self.sma_long_length).mean(), 4)  # 장기 SMA (20): 중기 추세 안정성 검증
 
-        # MPR 계산
-        mpr = total_bid_volume / (total_bid_volume + total_ask_volume)
-        return round(mpr, 4),coin_low,coin_high
-    except Exception as e:
-        print(f"오류 발생: {e}")
-        return 0.5
+            # 모멘텀 지표 - 가격의 상승/하락 속도와 과매수/과매도 상태 탐지
+            df['RSI'] = round(ta.rsi(df['Close'], length=self.rsi_length), 4)  # RSI (10): 가격 모멘텀과 과매도/과매수 판단
+            stoch = round(ta.stoch(df['High'], df['Low'], df['Close'], k=self.stoch_k_length, d=self.stoch_d_length, smooth_k=self.stoch_smooth), 4)  # Stochastic (5,3,3): 빠른 과매수/과매도 신호
+            stoch.columns = ['STOCH_k', 'STOCH_d']
+            df = pd.concat([df, stoch], axis=1)
+            df['Momentum'] = round(ta.mom(df['Close'], length=self.momentum_length), 4)  # Momentum (5): 단기 가격 변화 속도
+            df['ROC'] = round(ta.roc(df['Close'], length=self.roc_length), 4)  # ROC (5): 단기 가격 변화율로 모멘텀 확인
+            df['CCI'] = round(ta.cci(df['High'], df['Low'], df['Close'], length=self.cci_length), 4)  # CCI (10): 가격 변동성과 과매도/과매수 탐지
+            df['Williams_R'] = round(ta.willr(df['High'], df['Low'], df['Close'], length=self.willr_length), 4)  # Williams %R (10): 과매수/과매도 상태 파악
 
-# def calculate_mpr(order_book, levels=None):
-#     """
-#     Market Pressure Ratio (MPR)를 계산합니다.
-#     :param order_book: DataFrame, 호가창 데이터 (Bid Volume, Ask Volume 포함)
-#     :param levels: int, 분석에 사용할 가격 레벨 수 (default: 전체 레벨)
-#     :return: float, Market Pressure Ratio 
-#     MPR > 0.5: 상승 압력
-#     MPR < 0.5: 하락 압력
-#     """
-#     try:
-#         # bids와 asks에서 각 레벨별 거래량만 추출
-#         bids = order_book["bid_qty"]
-#         asks = order_book["ask_qty"]
+            # 추세 지표 - 추세 강도와 방향을 측정
+            adx = round(ta.adx(df['High'], df['Low'], df['Close'], length=self.adx_length), 4)  # ADX (10): 단기 추세 강도와 방향성
+            adx.columns = ['ADX', 'DMP', 'DMN']
+            df = pd.concat([df, adx], axis=1)
+            macd = round(ta.macd(df['Close'], fast=self.macd_fast, slow=self.macd_slow, signal=self.macd_signal), 4)  # MACD (5,10,3): 단기 추세 전환과 모멘텀
+            macd.columns = ['MACD', 'MACD_histogram', 'MACD_signal']
+            df = pd.concat([df, macd], axis=1)
 
-#         # 마지막 bid와 ask에서 가격 추출
-#         coin_low = float(order_book["bid_price"][-1])  # bids 리스트의 마지막 가격
-#         coin_high = float(order_book["ask_price"][-1])  # asks 리스트의 마지막 가격
+            # 변동성 지표 - 가격 변동 범위와 리스크 측정
+            df['ATR'] = round(ta.atr(df['High'], df['Low'], df['Close'], length=self.atr_length), 4)  # ATR (10): 단기 가격 변동성으로 리스크 관리
 
-#         # 상위 levels개 레벨만 사용
-#         if levels is not None:
-#             bids = bids[:levels]
-#             asks = asks[:levels]
+            # 볼린저 밴드 - 가격 범위와 변동성 기반 반전 신호
+            bb = round(ta.bbands(df['Close'], length=self.bbands_length, std=self.bbands_std), 4)  # Bollinger Bands (20, std=2.0): 단기 가격 범위와 반전 포착
+            bb.columns = ['BB_lower', 'BB_middle', 'BB_upper', 'BBB', 'BBP']
+            df = pd.concat([df, bb], axis=1)
 
-#         # 매수 및 매도 총 거래량 계산
-#         total_bid_volume = sum(float(bid) for bid in bids)
-#         total_ask_volume = sum(float(ask) for ask in asks)
+            # 피보나치 되돌림 레벨 - 단기 지지/저항 레벨 계산
+            recent_high = round(df['High'].rolling(self.fib_length).max(), 4)  # 최근 20분 고가: 단기 지지/저항 기준
+            recent_low = round(df['Low'].rolling(self.fib_length).min(), 4)  # 최근 20분 저가: 단기 지지/저항 기준
+            df['fib_0.236'] = recent_high - (recent_high - recent_low) * 0.236  # 23.6% 되돌림: 약한 지지/저항
+            df['fib_0.5'] = recent_high - (recent_high - recent_low) * 0.5  # 50% 되돌림: 중간 지지/저항
+            df['fib_0.786'] = recent_high - (recent_high - recent_low) * 0.786  # 78.6% 되돌림: 강한 지지/저항
+            df['fib_0.618'] = recent_high - (recent_high - recent_low) * 0.618  # 61.8% 되돌림: 주요 지지/저항
 
-#         # 매수, 매도 거래량 합이 0인 경우
-#         if total_bid_volume + total_ask_volume == 0:
-#             return 0.5
+            return df.dropna()
+        except Exception as e:
+            print(f"지표 계산 중 오류: {e}")
+            return "Error_State"
 
-#         # MPR 계산
-#         mpr = total_bid_volume / (total_bid_volume + total_ask_volume)
+    def calculate_orderbook_indicators(self, orderbook: Dict) -> Dict:
+        """
+        orderbook_data를 활용한 지표 계산
+        :param orderbook_data: orderbook 데이터 (bids, asks 포함)
+        :return: 계산된 지표 (spread, order_imbalance, price_depth 등)
+        """
+        try:
+            symbol = orderbook.get('s')
+            bids = orderbook.get('b', [])
+            asks = orderbook.get('a', [])
 
-#         return round(mpr, 4),coin_low,coin_high
-#     except Exception as e:
-#         print(f"오류 발생: {e}")
-#         return 0.5
+            # 호가 간격(Spread) - 매수/매도 최우선 호가 차이, 유동성 지표
+            best_bid = float(bids[0][0]) if bids else 0
+            best_ask = float(asks[0][0]) if asks else 0
+            spread = round(best_ask - best_bid, 6)
+            low_bid = float(bids[-1][0]) if bids else 0
+            high_ask = float(asks[-1][0]) if asks else 0
 
-# 호가 단위 가져오기 함수
-tick_size = {}
-def get_tick_size():
-    global tick_size
-    info = client.futures_exchange_info()
-    for s in info['symbols']:
-        if s['symbol'] in COIN_LIST:
-            for f in s['filters']:
-                if f['filterType'] == 'PRICE_FILTER':
-                    tick_size[s['symbol']] = float(f['tickSize'])
-    print('tick_size',tick_size)                
-    return tick_size
-# tick_size = get_tick_size()
-# print(tick_size)
+            # 누적 주문량 차이(Order Imbalance) - 매수/매도 세력 불균형, 시장 심리 반영
+            total_bid_volume = sum(float(bid[1]) for bid in bids)
+            total_ask_volume = sum(float(ask[1]) for ask in asks)
+            order_imbalance = round((total_bid_volume - total_ask_volume) / (total_bid_volume + total_ask_volume) if (total_bid_volume + total_ask_volume) > 0 else 0, 4)
 
-# def add_indicators(df):
-#     # df['Close'] = pd.to_numeric(df['Close'], errors='coerce')  # 필요 시 활성화
-#     close_prices = df['Close']
+            # 시장참여비율 (MPR) - 매수 압력 비율, 시장 방향성 판단
+            mpr = round(total_bid_volume / (total_bid_volume + total_ask_volume), 4) if (total_bid_volume + total_ask_volume) > 0 else 0.5
 
-#     # 이동 평균 추가 (소수점 4자리 제한)
-#     df['SMA_7'] = round(close_prices.rolling(window=7).mean(), 4)
-#     df['SMA_15'] = round(close_prices.rolling(window=15).mean(), 4)
-#     df['SMA_50'] = round(close_prices.rolling(window=50).mean(), 4)
+            # 가격 깊이(Price Depth) - ±1% 범위 내 매수/매도 주문량, 유동성 측정
+            current_price = (best_bid + best_ask) / 2
+            price_range = current_price * 0.01
+            bid_depth = round(sum(float(bid[1]) for bid in bids if current_price - price_range <= float(bid[0]) <= current_price), 4)
+            ask_depth = round(sum(float(ask[1]) for ask in asks if current_price <= float(ask[0]) <= current_price + price_range), 4)
 
-#     # RSI (14기간) 추가 (소수점 4자리 제한)
-#     df['RSI_14'] = round(ta.rsi(close_prices, length=14), 4)
+            return {
+                'symbol': symbol,
+                'high_ask': high_ask,
+                'low_bid': low_bid,
+                'spread': spread,
+                'order_imbalance': order_imbalance,
+                'bid_depth': bid_depth,
+                'ask_depth': ask_depth,
+                'mpr': mpr
+            }
+        except Exception as e:
+            print(f"orderbook indicator 계산 중 오류: {e}")
+            return "Error_State"
 
-#     # MACD 계산 (소수점 4자리 제한)
-#     ema_fast = close_prices.ewm(span=12, adjust=False).mean()
-#     ema_slow = close_prices.ewm(span=26, adjust=False).mean()
-#     df['MACD'] = round(ema_fast - ema_slow, 6)
-#     df['Signal_Line'] = round(df['MACD'].ewm(span=9, adjust=False).mean(), 6)
-#     df['MACD_Histogram'] = round(df['MACD'] - df['Signal_Line'], 6)
+    def determine_market_status(self, df: pd.DataFrame) -> str:
+        """ADX 기반 추세 강도 판단 (개선 버전)
+        - 시장 상태를 추세 강도와 방향성으로 분류
+        """
+        try:
+            # 1. 신호선 0 체크 - MACD 방향성과 강도 계산
+            signal_line = df['MACD_signal'].iloc[-1]
+            if signal_line == 0:
+                macd_signal_rate_hour = 0
+            else:
+                macd_diff = abs(df['MACD'].iloc[-1] - signal_line)
+                macd_signal_rate_hour = round((macd_diff / signal_line) * 100, 2)
 
-#     # 볼린저 밴드 계산 (소수점 4자리 제한)
-#     df['Middle_Band'] = round(close_prices.rolling(window=20).mean(), 4)
-#     std_dev = close_prices.rolling(window=20).std()
-#     df['Upper_Band'] = round(df['Middle_Band'] + (std_dev * 2), 4)
-#     df['Lower_Band'] = round(df['Middle_Band'] - (std_dev * 2), 4)
+            # 2. 이동평균선 조건 - 단기/중기 추세 방향성 판단
+            is_rising_ma = (
+                df['SMA_short'].iloc[-1] > df['SMA_mid'].iloc[-1] > df['SMA_long'].iloc[-1] and
+                df['SMA_short'].iloc[-1] > df['SMA_short'].iloc[-2] and
+                df['SMA_mid'].iloc[-1] > df['SMA_mid'].iloc[-2]
+            )
+            is_falling_ma = (
+                df['SMA_short'].iloc[-1] < df['SMA_mid'].iloc[-1] < df['SMA_long'].iloc[-1] and
+                df['SMA_short'].iloc[-1] < df['SMA_short'].iloc[-2] and
+                df['SMA_mid'].iloc[-1] < df['SMA_mid'].iloc[-2]
+            )
 
-#     return df.dropna()
+            # 3. MACD 조건 - 단기 추세 전환과 강도 확인
+            macd_vals = df['MACD'].tail(3).values
+            is_rising_macd = (
+                df['MACD'].iloc[-1] > df['MACD_signal'].iloc[-1] and
+                macd_vals[-1] > macd_vals[-2] > macd_vals[-3] and
+                macd_signal_rate_hour > 10
+            )
+            is_falling_macd = (
+                df['MACD'].iloc[-1] < df['MACD_signal'].iloc[-1] and
+                macd_vals[-1] < macd_vals[-2] < macd_vals[-3] and
+                macd_signal_rate_hour > 10
+            )
 
+            # 4. ADX 기반 추세 판단 - 추세 강도에 따라 상태 분류
+            adx_value = df['ADX'].iloc[-1]
+            if adx_value > 25:
+                if is_rising_ma or is_rising_macd:
+                    return "Strong_Trend_Up"
+                if is_falling_ma or is_falling_macd:
+                    return "Strong_Trend_Down"
+            else:
+                if is_rising_ma or is_rising_macd:
+                    return "Rising"
+                if is_falling_ma or is_falling_macd:
+                    return "Falling"
 
-def add_indicators(df):
-    # df['Close'] = pd.to_numeric(df['Close'], errors='coerce')  # 필요 시 활성화
+            return "Sideways_Or_Weak_Trend"
 
-        # 인덱스 재설정
-    df = df.reset_index(drop=True)
-
-    close_prices = df['Close']
-    high_prices = df['High']
-    low_prices = df['Low']
-
-    # ADX (Average Directional Index) - 추세 강도 측정
-    adx_period = 14
-    adx = ta.adx(high_prices, low_prices, close_prices, length=adx_period)
-    df['ADX'] = round(adx[f'ADX_{adx_period}'], 4)  # ADX 값만 추출
-    
-    # ATR (Average True Range) - 변동성 측정
-    atr_period = 14
-    df['ATR'] = round(ta.atr(high_prices, low_prices, close_prices, length=atr_period), 4)
-
-    stoch = ta.stoch(high_prices, low_prices, close_prices, k=10, d=3, smooth_window=4)
-    slowk = stoch.iloc[:, 0].reset_index(drop=True)  # 첫 번째 컬럼 (%K)
-    slowd = stoch.iloc[:, 1].reset_index(drop=True)  # 두 번째 컬럼 (%D)
-
-    # 신호 계산
-    signal = []
-    # for i in range(len(df)):
-    #     if i == 0 or pd.isna(slowk.iloc[i]) or pd.isna(slowd.iloc[i]) or pd.isna(slowk.iloc[i-1]) or pd.isna(slowd.iloc[i-1]):
-    #         signal.append(None)
-    #     elif slowk.iloc[i-1] > slowd.iloc[i-1] and slowk.iloc[i] < slowd.iloc[i]:
-    #         signal.append('매도')
-    #     elif slowk.iloc[i-1] < slowd.iloc[i-1] and slowk.iloc[i] > slowd.iloc[i]:
-    #         signal.append('매수')
-    #     else:
-    #         signal.append(None)
-
-    for i in range(len(df)):
-        # 스토캐스틱 지표의 길이가 원본 데이터프레임보다 짧을 수 있으므로, 인덱스 범위를 확인
-        if i >= len(slowk) or i >= len(slowd):
-            signal.append(None)
-            continue
-
-        # i == 0일 때는 이전 값이 없으므로 None 처리
-        if i == 0 or pd.isna(slowk.iloc[i]) or pd.isna(slowd.iloc[i]) or pd.isna(slowk.iloc[i-1]) or pd.isna(slowd.iloc[i-1]):
-            signal.append(None)
-        elif slowk.iloc[i-1] > slowd.iloc[i-1] and slowk.iloc[i] < slowd.iloc[i]:
-            signal.append('매도')
-        elif slowk.iloc[i-1] < slowd.iloc[i-1] and slowk.iloc[i] > slowd.iloc[i]:
-            signal.append('매수')
-        else:
-            signal.append(None)            
-    # 이동 평균 추가 (소수점 4자리 제한)
-    df['SMA_7'] = round(close_prices.rolling(window=7).mean(), 4)
-    df['SMA_15'] = round(close_prices.rolling(window=15).mean(), 4)
-    df['SMA_50'] = round(close_prices.rolling(window=50).mean(), 4)
-
-    # RSI (14기간) 추가 (소수점 4자리 제한)
-    df['RSI_14'] = round(ta.rsi(close_prices, length=14), 4)
-
-    # MACD 계산 (소수점 4자리 제한)
-    macd = ta.macd(close_prices, fast=12, slow=26, signal=9)
-    df['MACD'] = round(macd['MACD_12_26_9'], 6)
-    df['Signal_Line'] = round(macd['MACDs_12_26_9'], 6)
-    df['MACD_Histogram'] = round(macd['MACDh_12_26_9'], 6)
-
-    # 프라이스 채널 계산 (소수점 4자리 제한)
-    period_pc = 25
-    df['channel_high'] = round(high_prices.rolling(window=period_pc).max(), 4)
-    df['channel_low'] = round(low_prices.rolling(window=period_pc).min(), 4)
-
-    # 볼린저 밴드 계산 (소수점 4자리 제한)
-    period_bb = 30
-    mult = 1.5
-    df['Middle_Band'] = round(close_prices.rolling(window=period_bb).mean(), 4)
-    std_dev = close_prices.rolling(window=period_bb).std()
-    df['Upper_Band'] = round(df['Middle_Band'] + (std_dev * mult), 4)
-    df['Lower_Band'] = round(df['Middle_Band'] - (std_dev * mult), 4)
-
-    # 스토캐스틱 화산 바닥 신호 추가
-    df['stochastic_signal'] = signal
-
-    return df.dropna()
-
-# filepath = "Binance_autotrade\\coin_data\\coin_data_ADAUSDT_1h.csv"
-# df_minute = pd.read_csv(filepath, sep='\t')
-# df_minute = add_indicators(df_minute)
-# print(df_minute.tail(10))
-
-# def add_indicators(df):
-#     # df['Close'] = pd.to_numeric(df['Close'], errors='coerce')  # 필요 시 활성화
-#     close_prices = df['Close']
-
-#     # ADX 계산 추가
-#     # df['ADX'] = ta.adx(high=df['High'], low=df['Low'], close=close_prices, length=14)['ADX_14']
-
-#     # 이동 평균 추가
-#     df['SMA_7'] = close_prices.rolling(window=7).mean()
-#     df['SMA_15'] = close_prices.rolling(window=15).mean()
-#     df['SMA_50'] = close_prices.rolling(window=50).mean()
-
-#     # RSI (14기간) 추가
-#     df['RSI_14'] = round(ta.rsi(close_prices, length=14), 4)
-
-
-#     # MACD 계산
-#     ema_fast = close_prices.ewm(span=12, adjust=False).mean()
-#     ema_slow = close_prices.ewm(span=26, adjust=False).mean()
-#     df['MACD'] = ema_fast - ema_slow
-#     df['Signal_Line'] = df['MACD'].ewm(span=9, adjust=False).mean()
-#     df['MACD_Histogram'] = df['MACD'] - df['Signal_Line']
-
-#     # 볼린저 밴드 계산
-#     df['Middle_Band'] = close_prices.rolling(window=20).mean()
-#     std_dev = close_prices.rolling(window=20).std()
-#     df['Upper_Band'] = df['Middle_Band'] + (std_dev * 2)
-#     df['Lower_Band'] = df['Middle_Band'] - (std_dev * 2)
-
-#     return df.dropna()
-
-# POC 계산 함수
-def calculate_poc(df):
-    close_prices = df['Close']
-    price_bins = np.linspace(close_prices.min(), close_prices.max(), 50)
-    df = df.copy()  # 원본 데이터프레임의 복사본을 생성하여 작업
-    df.loc[:, 'price_bin'] = pd.cut(df['Close'], bins=price_bins, include_lowest=True, right=False)
-    volume_profile = df.groupby('price_bin', observed=True)['Volume'].sum()
-    poc_bin = volume_profile.idxmax()
-    poc = poc_bin.mid if poc_bin is not None else np.nan  # POC는 가장 많은 거래량이 발생한 가격 수준의 중간값
-    return poc
-
+        except Exception as e:
+            print(f"추세 판단 오류: {e}")
+            return "Error_State"

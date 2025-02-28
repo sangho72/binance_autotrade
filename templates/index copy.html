@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Bot Control Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <!-- 트레이딩뷰 위젯 스크립트 -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Trading Bot Control Panel</h1>
+    </header>
+    <main>
+        <section id="controls">
+            <button onclick="startBot()">Start Bot</button>
+            <button onclick="stopBot()">Stop Bot</button>
+            <button onclick="resetBot()">Reset Bot</button>
+            <p id="status">Bot Status: Unknown</p>
+            <p id="error"></p>
+        </section>
+        <section id="chart">
+            <h2>Live Chart</h2>
+            <div id="tradingview_chart"></div>
+        </section>
+        <section id="logs">
+            <h2>Logs</h2>
+            <div id="terminal">
+                <pre id="terminal_content"></pre>
+            </div>
+        </section>
+        <section id="config">
+            <h2>Configure Bot</h2>
+            <form id="config-form" onsubmit="updateConfig(event)">
+                <label for="coin_list">Coin List (comma separated):</label><br>
+                <input type="text" id="coin_list" name="coin_list"><br><br>
+                <label for="trade_rate">Trade Rate:</label><br>
+                <input type="text" id="trade_rate" name="trade_rate"><br><br>
+                <label for="target_leverage">Target Leverage:</label><br>
+                <input type="text" id="target_leverage" name="target_leverage"><br><br>
+                <input type="submit" value="Update Configuration">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Trading Bot</p>
+    </footer>
+
+    <script type="text/javascript">
+        new TradingView.widget({
+            "width": 980,
+            "height": 610,
+            "symbol": "BINANCE:BTCUSDT",
+            "interval": "1",
+            "timezone": "Asia/Seoul",
+            "theme": "light",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "allow_symbol_change": true,
+            "container_id": "tradingview_chart",
+            "studies": [
+                "MACD@tv-basicstudies",
+                "RSI@tv-basicstudies"   
+                ],
+                "overrides": {
+                "paneProperties.background": "#ffffff",
+                "paneProperties.vertGridProperties.color": "#E6E6E6",
+                "paneProperties.horzGridProperties.color": "#E6E6E6",
+                "symbolWatermarkProperties.transparency": 90,
+                "scalesProperties.textColor": "#AAA"
+                }
+            });
+        </script>
+</body>
+</html>
